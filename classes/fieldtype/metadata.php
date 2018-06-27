@@ -384,8 +384,14 @@ class metadata {
                         //$author_chop = substr($author, 0, -1);  // cut the last ','
                         //$default_value = 'LOMv1.0|author|'.$author_chop.'|'.$createtime;
 
+                        $is_https = isset($_SERVER['HTTPS']);
+
                         if (!empty($author_id)) {
-                            $author_profile = 'http://' .$serverName .'/user/profile.php?id=' .$author_id;
+                            if (empty($is_https)) {
+                                $author_profile = 'http://' .$serverName .'/user/profile.php?id=' .$author_id;
+                            } else {
+                                $author_profile = 'https://' .$serverName .'/user/profile.php?id=' .$author_id;
+                            }
                         } else {
                             $author_profile = '';
                         }                        

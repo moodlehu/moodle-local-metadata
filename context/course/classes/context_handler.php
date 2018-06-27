@@ -110,8 +110,9 @@ class context_handler extends \local_metadata\context\context_handler {
      * Hook function to extend the course settings navigation.
      */
     public function extend_navigation_course($parentnode, $course, $context) {
-        if ((get_config('metadatacontext_course', 'metadataenabled') == 1) &&
-            has_capability('moodle/course:create', $context)) {
+        //if ((get_config('metadatacontext_course', 'metadataenabled') == 1) &&
+        //    has_capability('moodle/course:create', $context)) 
+        {
             $strmetadata = get_string('metadatatitle', 'metadatacontext_course');
 
             $url = new \moodle_url('/local/metadata/index.php',
