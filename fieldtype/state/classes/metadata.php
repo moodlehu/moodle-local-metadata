@@ -84,7 +84,6 @@ class metadata extends \local_metadata\fieldtype\metadata {
                         $inputid_a = $save . '#source';
                         // zl_temp do not show those fields with[source] with 'LOMv1.0'
                         //$mform->addElement('text', $inputid_a, format_string($showname_a),'size="80" ');   //contribute [role][source]
-
                         $mform->addElement('hidden', $inputid_a);
                         
                         if (!empty($value[$index])) {
@@ -95,8 +94,9 @@ class metadata extends \local_metadata\fieldtype\metadata {
                         
                         $showname_b = $showname . '[value]';
                         $inputid_b = $save . '#value';
-                        $mform->addElement('text', $inputid_b, format_string($showname_b),'size="80" ');   //contribute [role][value]
-                        
+                        $role = ["author"=>"author", "publisher"=>"publisher"];
+                        //$mform->addElement('text', $inputid_b, format_string($showname_b),'size="80" ');   //contribute [role][value]
+                        $mform->addElement('select', $inputid_b, format_string($showname_b), $role);   //contribute [role][value]
                         $mform->setType($inputid_b, PARAM_TEXT); // We MUST clean this before display!
                         
                         if (!empty($value[$index])) {
