@@ -54,7 +54,12 @@ class metadata extends \local_metadata\fieldtype\metadata {
      */
     public function edit_field_add($mform) {
         // Create the form field.
-        $mform->addElement('editor', $this->inputname, format_string($this->field->name), null, null);
+        
+        if (strpos($this->inputname, 'educational_description') !== false) {
+            $mform->addElement('editor', $this->inputname, format_string(get_string('educational_description', 'local_lom')), null, null);
+        } else {
+            $mform->addElement('editor', $this->inputname, format_string($this->field->name), null, null);
+        }
         $mform->setType($this->inputname, PARAM_RAW); // We MUST clean this before display!
     }
 

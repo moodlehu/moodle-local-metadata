@@ -84,16 +84,13 @@ class metadata extends \local_metadata\fieldtype\metadata {
         $metadata = ($this->field->param3 == 1 ? 'password' : 'text');
 
         // Create the form field.
-        // zl_temp: to distinguish the difference between 'description' in 'general' and 'educational'
+        // zl_temp: to distinguish the difference between 'description' in 'general' and 'educational'(they have different translations
         if (strpos($this->inputname, 'general_description') !== false) {
             $mform->addElement($metadata, $this->inputname, format_string(get_string('general_description', 'local_lom')), 'maxlength="'.
-                $maxlength.'" size="'.$size.'" ');
-        } else if (strpos($this->inputname, 'educational_description') !== false) {
-            $mform->addElement($metadata, $this->inputname, format_string(get_string('educational_description', 'local_lom')), 'maxlength="'.
-                $maxlength.'" size="'.$size.'" ');
+                $maxlength.'" size="80"');
         } else {      
             $mform->addElement($metadata, $this->inputname, format_string(get_string($this->field->name, 'local_lom')), 'maxlength="'.
-                $maxlength.'" size="'.$size.'" ');
+                $maxlength.'" size="80"');
         }
 
         $mform->setType($this->inputname, PARAM_TEXT);
