@@ -90,7 +90,7 @@ class context_handler extends \local_metadata\context\context_handler {
      */
     public function require_access() {
         require_login($this->instance);
-        require_capability('moodle/course:create', $this->context);
+        //require_capability('moodle/course:create', $this->context);
         return true;
     }
 
